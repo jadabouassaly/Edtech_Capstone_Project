@@ -1,1 +1,1 @@
-# Edtech_Capstone_Project
+EdTech Capstone Project
