@@ -51,19 +51,19 @@ url1 = 'https://drive.google.com/file/d/1ydzkkv8saB5KGnUt5Z2e6Es1bfIZUdrP/view?u
 path1 = 'https://drive.google.com/uc?export=download&id='+url1.split('/')[-2]
 
 url2 = 'https://drive.google.com/file/d/1olz9vzJaWwz4edWXcq2pUMJ4KmDrBq6a/view?usp=sharing'
-path2 = 'https://drive.google.com/uc?export=download&id='+url1.split('/')[-2]
+path2 = 'https://drive.google.com/uc?export=download&id='+url2.split('/')[-2]
 
 url3 = 'https://drive.google.com/file/d/1T4ZURpO1a8pAvRgvBwKBJ4x3bVdrTBTa/view?usp=sharing'
-path3 = 'https://drive.google.com/uc?export=download&id='+url1.split('/')[-2]
+path3 = 'https://drive.google.com/uc?export=download&id='+url3.split('/')[-2]
 
 url4 = 'https://drive.google.com/file/d/13IZgG1_YjityXlP2qiHVRKueYEH3yGhD/view?usp=sharing'
-path4 = 'https://drive.google.com/uc?export=download&id='+url1.split('/')[-2]
+path4 = 'https://drive.google.com/uc?export=download&id='+url4.split('/')[-2]
 
 url5 = 'https://drive.google.com/file/d/1QvrTkBnX6dTjdp14MaQuTvDmxuBMRvJh/view?usp=sharing'
-path5 = 'https://drive.google.com/uc?export=download&id='+url1.split('/')[-2]
+path5 = 'https://drive.google.com/uc?export=download&id='+url5.split('/')[-2]
 
 url6 = 'https://drive.google.com/file/d/1HVs4DzhmTuJLQ54Lq1BkEv2rjFAgMCvE/view?usp=sharing'
-path6 = 'https://drive.google.com/uc?export=download&id='+url1.split('/')[-2]
+path6 = 'https://drive.google.com/uc?export=download&id='+url6.split('/')[-2]
 
 df1=load_data(path1)
 df2=load_data(path2)
