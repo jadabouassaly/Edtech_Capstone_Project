@@ -931,8 +931,8 @@ if option == 'Data Analysis using NLP':
         return(fig)
         # st.plotly_chart(fig3)
 
-    st.write("""We will start by cleaning the columns from stopwords, digits,
-     punctuations and special characters. Also we will be lemmatizing each word by converting it to its original roots. Then we will be display the related number of words.""")
+    st.write("""The "About" column is cleaned by removing stopwords, digits,
+     punctuations and special characters. Also lemmatizing is applied by converting each word to its original roots. The related number of words are then calculated.""")
     st.write("Please input the number of comapnies to show.")
     col1,col2,col3,col4=st.beta_columns([1,1,1,1])
     with col1:
