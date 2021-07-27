@@ -867,7 +867,7 @@ if option == 'Data Analysis using NLP':
     st.write("")
 
     html = '''
-    <h1 style="font-size: 20px">In this section, we will use NLP to delve a little deeper into the <span style="color: #fedf46;">"About"</span> column of each company.</h1>
+    <h1 style="text-align: center;font-size: 20px">In this section, we will use NLP to delve a little deeper into the <span style="color: #fedf46;">"About"</span> column of each company.</h1>
     '''
     st.markdown(html, unsafe_allow_html=True)
 
