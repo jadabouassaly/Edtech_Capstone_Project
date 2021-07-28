@@ -67,12 +67,16 @@ path5 = 'https://drive.google.com/uc?export=download&id='+url5.split('/')[-2]
 url6 = 'https://drive.google.com/file/d/1HVs4DzhmTuJLQ54Lq1BkEv2rjFAgMCvE/view?usp=sharing'
 path6 = 'https://drive.google.com/uc?export=download&id='+url6.split('/')[-2]
 
+url7 = 'https://drive.google.com/file/d/1unfO8BzJ1L_OpxrkCcp8JIHXYOv4VZOJ/view?usp=sharing'
+path7 = 'https://drive.google.com/uc?export=download&id='+url7.split('/')[-2]
+
 df1=load_data(path1)
 df2=load_data(path2)
 df3=load_data(path3)
 df4=load_data(path4)
 df5=load_data(path5)
 df6=load_data(path6)
+df7=load_data(path7)
 # convert "Founded" column from float to int
 # df2.replace(-np.Inf, np.nan)
 # st.write(df2)
@@ -81,7 +85,7 @@ df6=load_data(path6)
 # col=np.array(df2['Founded'], np.int)
 # df2['Founded']=col
 
-frames = [df1, df2, df3, df4, df5, df6]
+frames = [df1, df2, df3, df4, df5, df6, df7]
 final_df = pd.concat(frames)
 final_df.reset_index(drop=True, inplace=True)
 final_df.drop(['Unnamed: 0','Score'], axis=1,inplace=True)
