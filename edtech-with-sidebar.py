@@ -84,7 +84,7 @@ df5=load_data(path5)
 df6=load_data(path6)
 df7=load_data(path7)
 df8=load_data(path8)
-df9=load_data(path8)
+df9=load_data(path9)
 # convert "Founded" column from float to int
 # df2.replace(-np.Inf, np.nan)
 # st.write(df2)
