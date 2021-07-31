@@ -18,7 +18,7 @@ from nltk.stem.porter import PorterStemmer
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem.wordnet import WordNetLemmatizer
 import re
-
+from collections import Counter
 
 st.set_page_config(
      page_title="EdTech Tool",
