@@ -879,7 +879,7 @@ if option == 'Data Analysis using NLP':
     st.write("")
 
     html = '''
-    <h1 style="text-align: center;font-size: 20px">In this section, we will use NLP to delve a little deeper into the <span style="color: #fedf46;">"About"</span> column of each company.</h1>
+    <h1 style="font-size: 20px">In this section, we will use NLP to delve a little deeper into the <span style="color: #fedf46;">"About"</span> column of each company.</h1>
     '''
     st.markdown(html, unsafe_allow_html=True)
 
@@ -903,6 +903,9 @@ if option == 'Data Analysis using NLP':
 
         # remove special characters and digits
         text=re.sub("(\\d|\\W)+"," ",text)
+
+        #remove words with 1 character
+        text=re.sub(r'\b[a-z]\b', '', text)
 
         ##Convert to list from string
         text = text.split()
@@ -949,6 +952,7 @@ if option == 'Data Analysis using NLP':
     col1,col2,col3,col4=st.beta_columns([1,1,1,1])
     with col1:
         n=st.number_input(" ",min_value=1,max_value=final_df_3.shape[0],value=5,step=1)
+        n=int(n)
     final_df_3['Word_Count'] = final_df_3['Cleaned_About'].apply(lambda x: len(str(x).split(" ")))
     final_df_3=final_df_3[['Company','About','Cleaned_About','Word_Count']]
     st.write(final_df_3.head(n))
@@ -975,8 +979,20 @@ if option == 'Data Analysis using NLP':
             # x=st.number_input(" ",min_value=0,max_value=final_df_3.shape[0],value=0, step=1)
             # company=final_df_3['Company'][x]
             st.write("Choose the company:")
-            comp=st.selectbox(" ",final_df_3['Company'].unique())
-            x=final_df_3[final_df_3['Company']==comp].index[0]
+            lst= final_df_3['Company'].unique()
+            lst=np.insert(lst,0, "All")
+            comp=st.selectbox(" ",lst)
+
+            if comp =="All":
+                a=' '.join(final_df_3['Cleaned_About'].tolist())
+                tokenizer =RegexpTokenizer(r'\w+')
+                a = tokenizer.tokenize(a)
+                Counter = Counter(a)
+
+            else:
+                x=final_df_3[final_df_3['Company']==comp].index[0]
+
+
         with col2:
             st.write("Slide to choose the top \"n\" words to display")
             n=st.slider(" ",min_value=2,max_value=20,step=1,value=5)#max_value=int(final_df_3["Word_Count"][x])
@@ -985,7 +1001,7 @@ if option == 'Data Analysis using NLP':
 
         # df=pd.DataFrame(most_occuring_word(x,n),columns=('Word','Number of Occurence'))
 
-        html= f"""<h2 style="text-align: center; font-size: 18px">Top <span style="color: #fedf46;">{n}</span> most occuring words for <span style="color: #fedf46;">{comp}</span></h2>"""
+        html= f"""<h2 style="text-align: center; font-size: 18px">Top <span style="color: #fedf46;">{n}</span> most occuring words for <span style="color: #fedf46;">{comp}</span> company(ies)</h2>"""
         st.markdown(html,unsafe_allow_html=True)
         col1,col2 = st.beta_columns([1,2])
         with col1:
@@ -993,7 +1009,11 @@ if option == 'Data Analysis using NLP':
             st.write("")
             st.write("")
             st.write("")
-            df=createdataframe(x,n)
+            if comp == "All":
+                most_occur_1 = Counter.most_common(n)
+                df = pd.DataFrame(most_occur_1, columns = ['Word','Number of Occurence'])
+            else:
+                df=createdataframe(x,n)
             st.write(df)
         with col2:
             fig3=createbarchart(df)
