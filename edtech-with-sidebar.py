@@ -1001,8 +1001,12 @@ if option == 'Data Analysis using NLP':
 
         # df=pd.DataFrame(most_occuring_word(x,n),columns=('Word','Number of Occurence'))
 
-        html= f"""<h2 style="text-align: center; font-size: 18px">Top <span style="color: #fedf46;">{n}</span> most occuring words for <span style="color: #fedf46;">{comp}</span> company(ies)</h2>"""
-        st.markdown(html,unsafe_allow_html=True)
+        if comp == "All":
+            html= f"""<h2 style="text-align: center; font-size: 18px">Top <span style="color: #fedf46;">{n}</span> most occuring words for <span style="color: #fedf46;">{comp}</span> companies</h2>"""
+            st.markdown(html,unsafe_allow_html=True)
+        else:
+            html= f"""<h2 style="text-align: center; font-size: 18px">Top <span style="color: #fedf46;">{n}</span> most occuring words for <span style="color: #fedf46;">{comp}</span></h2>"""
+            st.markdown(html,unsafe_allow_html=True)
         col1,col2 = st.beta_columns([1,2])
         with col1:
             st.write("")
