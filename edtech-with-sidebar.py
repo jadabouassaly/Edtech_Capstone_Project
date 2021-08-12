@@ -326,38 +326,56 @@ if option == "Data Filtering":
         industry_choice = st.selectbox("", industries)
         mask1 = final_df["Industry"] == industry_choice
 
-# company_size = final_df["Company size"].loc[final_df["Industries"] == industry_choice].unique()
-    company_size = final_df["Company size"].loc[(final_df["Industry"] == industry_choice)].unique()
-    company_size=list(company_size)
-    company_size.insert(0,"All")
+    # company_size = final_df["Company size"].loc[(final_df["Industry"] == industry_choice)].unique()
+    # company_size=list(company_size)
+    # company_size.insert(0,"All")
 
-    with col2:
-        html = '''
-        <h1 style="font-size: 16px">Select The Company Size:</h1>
-        '''
-        st.markdown(html, unsafe_allow_html=True)
-        company_size_choice = st.selectbox("", company_size)
-        company_size_1=np.delete(company_size,0)
-        mask2 = final_df["Company size"] == company_size_choice if company_size_choice in company_size_1 else True
-
-    type = final_df["Type"].loc[(final_df["Industry"] == industry_choice) & (final_df["Company size"] == company_size_choice)].unique()
+    type = final_df["Type"].loc[(final_df["Industry"] == industry_choice)].unique()
     type=list(type)
     type.insert(0,"All")
 
+    with col2:
+        html = '''
+        <h1 style="font-size: 16px">Select The Company Type:</h1>
+        '''
+        st.markdown(html, unsafe_allow_html=True)
+        type_choice = st.selectbox("", type)
+        type_1=np.delete(type,0)
+        mask2 = final_df["Type"] == type_choice if type_choice in type_1 else True
+
+
+
+        # company_size_choice = st.selectbox("", company_size)
+        # company_size_1=np.delete(company_size,0)
+        # mask2 = final_df["Company size"] == company_size_choice if company_size_choice in company_size_1 else True
+
+    # type = final_df["Type"].loc[(final_df["Industry"] == industry_choice) & (final_df["Company size"] == company_size_choice)].unique()
+    # type=list(type)
+    # type.insert(0,"All")
+    company_size = final_df["Company size"].loc[(final_df["Industry"] == industry_choice) & (final_df["Type"] == type_choice)].unique()
+    company_size=list(company_size)
+    company_size.insert(0,"All")
+
+
     with col3:
-        if company_size_choice != 'All':
+        if type_choice != 'All':
             html = '''
-            <h1 style="font-size: 16px">Select The Company Type:</h1>
+            <h1 style="font-size: 16px">Select The Company Size:</h1>
             '''
             st.markdown(html, unsafe_allow_html=True)
-            type_choice = st.selectbox("", type)
-            type_1=np.delete(type,0)
-            mask3 = final_df["Type"] == type_choice if type_choice in type_1 else True
+            # type_choice = st.selectbox("", type)
+            # type_1=np.delete(type,0)
+            # mask3 = final_df["Type"] == type_choice if type_choice in type_1 else True
+            company_size_choice = st.selectbox("", company_size)
+            company_size_1=np.delete(company_size,0)
+            mask3 = final_df["Company size"] == company_size_choice if company_size_choice in company_size_1 else True
+
+
             year = final_df["Founded"].loc[(final_df["Industry"] == industry_choice) & (final_df["Company size"] == company_size_choice) & (final_df["Type"] == type_choice)].unique()
             year=list(year)
             year.insert(0,"All")
             with col4:
-                if type_choice != 'All':
+                if company_size_choice != 'All':
                     html = '''
                     <h1 style="font-size: 16px">Select The Year Founded:</h1>
                     '''
