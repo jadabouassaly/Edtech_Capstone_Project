@@ -19,7 +19,7 @@ from nltk.tokenize import RegexpTokenizer
 from nltk.stem.wordnet import WordNetLemmatizer
 import re
 from collections import Counter
-
+from wordcloud import WordCloud, STOPWORDS
 st.set_page_config(
      page_title="EdTech Tool",
      layout="wide",
@@ -917,7 +917,7 @@ if option == 'Data Analysis using NLP':
     st.write("")
 
     html = '''
-    <h1 style="font-size: 20px">In this section, Natural Language Processing (NLP) is used to delve a little deeper into the <span style="color: #fedf46;">"About"</span> column of each company.</h1>
+    <h1 style="font-size: 20px;text-align: center">In this section, Natural Language Processing (NLP) is used to delve a little deeper into the <span style="color: #fedf46;">"About"</span> column of each company.</h1>
     '''
     st.markdown(html, unsafe_allow_html=True)
 
@@ -988,20 +988,22 @@ if option == 'Data Analysis using NLP':
      punctuations and special characters. Also lemmatizing is applied by converting each word to its original roots. The related number of words are then calculated.""")
     st.write("")
     st.write("")
-    col1,col2,col3=st.beta_columns([2,1,4])
+    col1,col2=st.beta_columns([2,5])
     with col1:
         st.write("Please input the number of comapnies to show.")
         n=st.number_input(" ",min_value=1,max_value=final_df_3.shape[0],value=5,step=1)
         n=int(n)
     final_df_3['Word_Count'] = final_df_3['Cleaned_About'].apply(lambda x: len(str(x).split(" ")))
     final_df_3=final_df_3[['Company','About','Cleaned_About','Word_Count']]
-    with col3:
+    with col2:
         st.write(final_df_3.head(n))
 
     st.write("")
     st.write("")
-    col1,col2,col3,col4=st.beta_columns([1,2,2,1])
+    col1,col2,col3=st.beta_columns([1,1,1])
 
+    with col1:
+        check1=st.button("Generate Word Cloud")
     with col2:
         check2=st.checkbox("Most Occuring Word")
         #Fetch wordcount for each "about"
@@ -1011,6 +1013,28 @@ if option == 'Data Analysis using NLP':
 
     st.write("")
     st.write("")
+     
+    if check1:
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+        # stopwords = set(STOPWORDS)
+        comment_words =""
+        for i in range(final_df_3.shape[0]):
+            comment_words = comment_words+final_df_3['Cleaned_About'][i]+" "
+        # st.write(comment_words)
+        wordcloud = WordCloud(width = 800, height = 800,background_color ='white',min_font_size = 10).generate(comment_words)
+
+        # plot the WordCloud image
+        plt.figure(figsize = (8, 8), facecolor = None)
+        plt.imshow(wordcloud)
+        plt.axis("off")
+        plt.tight_layout(pad = 0)
+        plt.show()
+        col1,col2,col3=st.beta_columns([1,3,1])
+        with col2:
+            st.warning("This word cloud shows the most appearing words in the cleaned \"About\" column across all ompanies." )
+        col1,col2,col3=st.beta_columns([1,1,1])
+        with col2:
+            st.pyplot()
 
     if check2:
         col1,col2=st.beta_columns([1,1])
