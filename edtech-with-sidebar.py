@@ -988,7 +988,7 @@ if option == 'Data Analysis using NLP':
      punctuations and special characters. Also lemmatizing is applied by converting each word to its original roots. The related number of words are then calculated.""")
     st.write("")
     st.write("")
-    col1,col2,col3=st.beta_columns([1,1,4])
+    col1,col2,col3=st.beta_columns([2,1,4])
     with col1:
         st.write("Please input the number of comapnies to show.")
         n=st.number_input(" ",min_value=1,max_value=final_df_3.shape[0],value=5,step=1)
