@@ -986,15 +986,17 @@ if option == 'Data Analysis using NLP':
 
     st.write("""The "About" column is cleaned by removing stopwords, digits,
      punctuations and special characters. Also lemmatizing is applied by converting each word to its original roots. The related number of words are then calculated.""")
-    st.write("Please input the number of companies to show.")
-    col1,col2,col3,col4=st.beta_columns([1,1,1,1])
+    st.write("")
+    st.write("")
+    col1,col2=st.beta_columns([1,4])
     with col1:
+        st.write("Please input the number of comapnies to show.")
         n=st.number_input(" ",min_value=1,max_value=final_df_3.shape[0],value=5,step=1)
         n=int(n)
     final_df_3['Word_Count'] = final_df_3['Cleaned_About'].apply(lambda x: len(str(x).split(" ")))
     final_df_3=final_df_3[['Company','About','Cleaned_About','Word_Count']]
-    st.write(final_df_3.head(n))
-
+    with col2:
+        st.write(final_df_3.head(n))
 
     st.write("")
     st.write("")
@@ -1165,3 +1167,8 @@ if option == 'Data Analysis using NLP':
                     index_list.append(i)
             st.write(f'The number of companies is {len(index_list)}.')
             st.write(final_df_3.iloc[index_list])
+    
+    html = '''
+    <hr style="background-color:#fedf46;class="rounded"">
+    '''
+    st.markdown(html, unsafe_allow_html=True)
