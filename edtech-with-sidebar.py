@@ -870,7 +870,7 @@ if option == "Scoring":
 #Show Dataset with scores
     final_df_2=final_df_1[['Company','Industry','Company size','Type','Score']]
 
-    @st.cache
+   
     def showfig(n):
         fig = px.bar(final_df_2.nlargest(n,"Score"), x="Score", y="Company",orientation='h',title=f'Top {n} Scoring Companies')
         fig.update_traces(marker_color='#fedf46')
