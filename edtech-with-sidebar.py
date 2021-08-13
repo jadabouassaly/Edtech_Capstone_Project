@@ -256,14 +256,16 @@ if option == "Data Exploration":
     st.markdown(html, unsafe_allow_html=True)
     st.write("")
 
-    col2, col3, col4 = st.beta_columns([1,1,1])
+    col1, col2, col3, col4 = st.beta_columns([1,1,1,1])
 
-    with col2:
+    with col1:
         button1=st.button('Show Industry Statistics')
+    with col2:
+        button2=st.button('Show Company Type Statistics')
     with col3:
-        button2=st.button('Show Company Size Statistics')
+        button3=st.button('Show Company Size Statistics')
     with col4:
-        button3=st.button('Show World Distribution')
+        button4=st.button('Show World Distribution')
 
 
     if button1:
@@ -277,8 +279,18 @@ if option == "Data Exploration":
         fig1.update_layout(width=1300,height=600,showlegend=False)
         st.plotly_chart(fig1,width=1100,height=600)
 
-
     if button2:
+        st.write("")
+        item_counts_1 = final_df["Type"].value_counts()
+        col1,col2,col3=st.beta_columns([1,5,1])
+        with col2:
+            st.warning(f'**The histogram below shows that {item_counts_1[0]} companies are {item_counts_1.index[0]}  followed by {item_counts_1[1]} companies that are {item_counts_1.index[1]}.**')
+        fig2 = px.bar(final_df['Type'].value_counts() ,labels={"index":"Company Type", "value":"Count"})#title='Company Size',
+        fig2.update_traces(marker_color='#fedf46')
+        fig2.update_layout(width=1300,height=600,showlegend=False)
+        st.plotly_chart(fig2,width=1100,height=600)
+
+    if button3:
         st.write("")
         item_counts_1 = final_df["Company size"].value_counts()
         col1,col2,col3=st.beta_columns([1,5,1])
@@ -289,7 +301,7 @@ if option == "Data Exploration":
         fig2.update_layout(width=1300,height=600,showlegend=False)
         st.plotly_chart(fig2,width=1100,height=600)
 
-    if button3:
+    if button4:
         st.write("")
         col1,col2,col3=st.beta_columns([1,5,1])
         with col2:
