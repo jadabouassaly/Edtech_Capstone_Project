@@ -986,7 +986,7 @@ if option == 'Data Analysis using NLP':
 
     st.write("""The "About" column is cleaned by removing stopwords, digits,
      punctuations and special characters. Also lemmatizing is applied by converting each word to its original roots. The related number of words are then calculated.""")
-    st.write("Please input the number of comapnies to show.")
+    st.write("Please input the number of companies to show.")
     col1,col2,col3,col4=st.beta_columns([1,1,1,1])
     with col1:
         n=st.number_input(" ",min_value=1,max_value=final_df_3.shape[0],value=5,step=1)
