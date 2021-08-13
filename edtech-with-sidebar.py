@@ -1031,7 +1031,7 @@ if option == 'Data Analysis using NLP':
         plt.show()
         col1,col2,col3=st.beta_columns([1,3,1])
         with col2:
-            st.warning("This word cloud shows the most appearing words in the cleaned \"About\" column across all ompanies." )
+            st.warning("This word cloud shows the most appearing words in the cleaned \"About\" column across all companies." )
         col1,col2,col3=st.beta_columns([1,1,1])
         with col2:
             st.pyplot()
