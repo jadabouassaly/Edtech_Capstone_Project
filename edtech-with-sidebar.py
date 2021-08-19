@@ -126,10 +126,8 @@ url = 'https://drive.google.com/file/d/1qcwhWj62I_t7qApTgIzsbZ_ftLsOHq05/view?us
 msba_logo = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
 st.sidebar.image(msba_logo, use_column_width='auto')
 
-
 html = '''
-<p style="text-align: center; font-size: 15px">My name is Jad Abou Assaly, a Computer Engineer with a Masters in Business Analytics.
-Being a Tech Savvy and a Data Science enthusiast, I strive to deliver <b>Data driven</b> solutions for end users.</p>
+<p style="text-align: center; font-size: 15px">Jad Abou Assaly, <b>MSBA'21</b></p>
 <hr style="background-color:#fedf46;class="rounded"">
 '''
 st.sidebar.markdown(html, unsafe_allow_html=True)
@@ -642,68 +640,68 @@ if option == "Scoring":
         with col1:
             if len(industry_select)-1>=0:
                 industry1=industry_select[0]
-                n=st.number_input(f"Score for {industry1}",value =0)
+                n=st.number_input(f"Score for {industry1}",value =0,min_value=0, max_value=100)
 
         with col2:
             x= len(industry_select)-1
             if x-1>=0:
                 industry2=industry_select[1]
-                o=st.number_input(f"Score for {industry2}",value =0)
+                o=st.number_input(f"Score for {industry2}",value =0,min_value=0, max_value=100)
 
         with col3:
             y= len(industry_select)-2
             if y-1>=0:
                 industry3=industry_select[2]
-                p=st.number_input(f"Score for {industry3}",value =0)
+                p=st.number_input(f"Score for {industry3}",value =0,min_value=0, max_value=100)
 
         with col4:
             z= len(industry_select)-3
             if z-1>=0:
                 industry4=industry_select[3]
-                q=st.number_input(f"Score for {industry4}",value =0)
+                q=st.number_input(f"Score for {industry4}",value =0,min_value=0, max_value=100)
 
     elif len(industry_select)<9:
         col1, col2,col3,col4 = st.beta_columns([1,1,1,1])
         with col1:
             if len(industry_select)-1>=0:
                 industry1=industry_select[0]
-                n=st.number_input(f"Score for {industry1}",value =0)
+                n=st.number_input(f"Score for {industry1}",value =0,min_value=0, max_value=100)
 
         with col2:
             if len(industry_select)-2>=0:
                 industry2=industry_select[1]
-                o=st.number_input(f"Score for {industry2}",value =0)
+                o=st.number_input(f"Score for {industry2}",value =0,min_value=0, max_value=100)
 
         with col3:
             if len(industry_select)-3>=0:
                 industry3=industry_select[2]
-                p=st.number_input(f"Score for {industry3}",value =0)
+                p=st.number_input(f"Score for {industry3}",value =0,min_value=0, max_value=100)
 
         with col4:
             if len(industry_select)-4>=0:
                 industry4=industry_select[3]
-                q=st.number_input(f"Score for {industry4}",value =0)
+                q=st.number_input(f"Score for {industry4}",value =0,min_value=0, max_value=100)
 
         col1, col2,col3,col4 = st.beta_columns([1,1,1,1])
         with col1:
             if len(industry_select)-5>=0:
                 industry5=industry_select[4]
-                r=st.number_input(f"Score for {industry5}",value =0)
+                r=st.number_input(f"Score for {industry5}",value =0,min_value=0, max_value=100)
 
         with col2:
             if len(industry_select)-6>=0:
                 industry6=industry_select[5]
-                s=st.number_input(f"Score for {industry6}",value =0)
+                s=st.number_input(f"Score for {industry6}",value =0,min_value=0, max_value=100)
 
         with col3:
             if len(industry_select)-7>=0:
                 industry7=industry_select[6]
-                t=st.number_input(f"Score for {industry7}",value =0)
+                t=st.number_input(f"Score for {industry7}",value =0,min_value=0, max_value=100)
 
         with col4:
             if len(industry_select)-8>=0:
                 industry8=industry_select[7]
-                u=st.number_input(f"Score for {industry8}",value =0)
+                u=st.number_input(f"Score for {industry8}",value =0,min_value=0, max_value=100)
 
     else:
         st.write("Choose 8 or less industries to score")
@@ -737,37 +735,37 @@ if option == "Scoring":
     col1, col2,col3,col4 = st.beta_columns([1,1,1,1])
     with col1:
         size1=final_df_1["Company size"].value_counts().index[0]
-        a=st.number_input(f"Score for {size1}",value =0)
+        a=st.number_input(f"Score for {size1}",value =0,min_value=0, max_value=100)
 
     with col2:
         size2=final_df_1["Company size"].value_counts().index[1]
-        b=st.number_input(f"Score for {size2}",value =0)
+        b=st.number_input(f"Score for {size2}",value =0,min_value=0, max_value=100)
 
     with col3:
         size3=final_df_1["Company size"].value_counts().index[2]
-        c=st.number_input(f"Score for {size3}",value =0)
+        c=st.number_input(f"Score for {size3}",value =0,min_value=0, max_value=100)
 
     with col4:
         size4=final_df_1["Company size"].value_counts().index[3]
-        d=st.number_input(f"Score for {size4}",value =0)
+        d=st.number_input(f"Score for {size4}",value =0,min_value=0, max_value=100)
 
 
     col1, col2,col3,col4 = st.beta_columns([1,1,1,1])
     with col1:
         size5=final_df_1["Company size"].value_counts().index[4]
-        e=st.number_input(f"Score for {size5}",value =0)
+        e=st.number_input(f"Score for {size5}",value =0,min_value=0, max_value=100)
 
     with col2:
         size6=final_df_1["Company size"].value_counts().index[5]
-        f=st.number_input(f"Score for {size6}",value =0)
+        f=st.number_input(f"Score for {size6}",value =0,min_value=0, max_value=100)
 
     with col3:
         size7=final_df_1["Company size"].value_counts().index[6]
-        g=st.number_input(f"Score for {size7}",value =0)
+        g=st.number_input(f"Score for {size7}",value =0,min_value=0, max_value=100)
 
     with col4:
         size8=final_df_1["Company size"].value_counts().index[7]
-        h=st.number_input(f"Score for {size8}",value =0)
+        h=st.number_input(f"Score for {size8}",value =0,min_value=0, max_value=100)
 
     button2=st.checkbox("Apply \"Company Size\" Scores")
     if button2:
@@ -796,37 +794,37 @@ if option == "Scoring":
     col1, col2,col3,col4 = st.beta_columns([1,1,1,1])
     with col1:
         type1=final_df_1["Type"].value_counts().index[0]
-        j=st.number_input(f"Score for {type1}",value =0)
+        j=st.number_input(f"Score for {type1}",value =0,min_value=0, max_value=100)
 
     with col2:
         type2=final_df_1["Type"].value_counts().index[1]
-        k=st.number_input(f"Score for {type2}",value =0)
+        k=st.number_input(f"Score for {type2}",value =0,min_value=0, max_value=100)
 
     with col3:
         type3=final_df_1["Type"].value_counts().index[2]
-        l=st.number_input(f"Score for {type3}",value =0)
+        l=st.number_input(f"Score for {type3}",value =0,min_value=0, max_value=100)
 
     with col4:
         type4=final_df_1["Type"].value_counts().index[3]
-        m=st.number_input(f"Score for {type4}",value =0)
+        m=st.number_input(f"Score for {type4}",value =0,min_value=0, max_value=100)
 
 
     col1, col2,col3,col4 = st.beta_columns([1,1,1,1])
     with col1:
         type5=final_df_1["Type"].value_counts().index[4]
-        n=st.number_input(f"Score for {type5}",value =0)
+        n=st.number_input(f"Score for {type5}",value =0,min_value=0, max_value=100)
 
     with col2:
         type6=final_df_1["Type"].value_counts().index[5]
-        o=st.number_input(f"Score for {type6}",value =0)
+        o=st.number_input(f"Score for {type6}",value =0,min_value=0, max_value=100)
 
     with col3:
         type7=final_df_1["Type"].value_counts().index[6]
-        p=st.number_input(f"Score for {type7}",value =0)
+        p=st.number_input(f"Score for {type7}",value =0,min_value=0, max_value=100)
 
     with col4:
         type8=final_df_1["Type"].value_counts().index[7]
-        q=st.number_input(f"Score for {type8}",value =0)
+        q=st.number_input(f"Score for {type8}",value =0,min_value=0, max_value=100)
 
     button3=st.checkbox("Apply \"Company Type\" Scores")
     if button3:
@@ -888,7 +886,8 @@ if option == "Scoring":
         barplot=st.checkbox("Show Top Companies")
 
     if check:
-        st.write(final_df_2)
+        final_df_sorted=final_df_2.sort_values(by=['Score'],ascending=False)
+        st.write(final_df_sorted)
 
 
 
