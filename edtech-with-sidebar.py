@@ -106,6 +106,7 @@ final_df = pd.concat(frames)
 final_df.reset_index(drop=True, inplace=True)
 final_df.drop(['Unnamed: 0','Score'], axis=1,inplace=True)
 final_df = final_df.drop_duplicates(subset=['title'], keep='first')
+final_df[['Founded']] = final_df[['Founded']].fillna(value=0)
 final_df['Founded'] = final_df['Founded'].astype('int',errors='ignore')
 # st.write(final_df["Founded"].unique())
 # for i in range (final_df.shape[0]):
