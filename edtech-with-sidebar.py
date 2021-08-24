@@ -1102,7 +1102,7 @@ if option == 'Data Analysis using NLP':
             for i in range (final_df_3.shape[0]):
                 if s1 in final_df_3['Cleaned_About'][i]:
                     index_list.append(i)
-            st.write(f'The number of companies is {len(index_list)}.')
+            st.write(f'The number of companies matching your search criteria is {len(index_list)}.')
             st.write(final_df_3.iloc[index_list])
 
         if n ==2 and option == "AND":
@@ -1114,7 +1114,7 @@ if option == 'Data Analysis using NLP':
             for i in range (final_df_3.shape[0]):
                 if (s1 in final_df_3['Cleaned_About'][i] and s2 in final_df_3['Cleaned_About'][i]) :
                     index_list.append(i)
-            st.write(f'The number of companies is {len(index_list)}.')
+            st.write(f'The number of companies matching your search criteria is {len(index_list)}.')
             st.write(final_df_3.iloc[index_list])
 
         if n ==2 and option == "OR":
@@ -1126,7 +1126,7 @@ if option == 'Data Analysis using NLP':
             for i in range (final_df_3.shape[0]):
                 if (s1 in final_df_3['Cleaned_About'][i] or s2 in final_df_3['Cleaned_About'][i]) :
                     index_list.append(i)
-            st.write(f'The number of companies is {len(index_list)}.')
+            st.write(f'The number of companies matching your search criteria is {len(index_list)}.')
             st.write(final_df_3.iloc[index_list])
 
 
@@ -1141,7 +1141,7 @@ if option == 'Data Analysis using NLP':
             for i in range (final_df_3.shape[0]):
                 if (s1 in final_df_3['Cleaned_About'][i] and s2 in final_df_3['Cleaned_About'][i] and s3 in final_df_3['Cleaned_About'][i]) :
                     index_list.append(i)
-            st.write(f'The number of companies is {len(index_list)}.')
+            st.write(f'The number of companies matching your search criteria is {len(index_list)}.')
             st.write(final_df_3.iloc[index_list])
 
         if n ==3 and option == "OR":
@@ -1155,7 +1155,7 @@ if option == 'Data Analysis using NLP':
             for i in range (final_df_3.shape[0]):
                 if (s1 in final_df_3['Cleaned_About'][i] or s2 in final_df_3['Cleaned_About'][i] or s3 in final_df_3['Cleaned_About'][i]) :
                     index_list.append(i)
-            st.write(f'The number of companies is {len(index_list)}.')
+            st.write(f'The number of companies matching your search criteria is {len(index_list)}.')
             st.write(final_df_3.iloc[index_list])
 
 
@@ -1172,7 +1172,7 @@ if option == 'Data Analysis using NLP':
             for i in range (final_df_3.shape[0]):
                 if (s1 in final_df_3['Cleaned_About'][i] and s2 in final_df_3['Cleaned_About'][i] and s3 in final_df_3['Cleaned_About'][i] and s4 in final_df_3['Cleaned_About'][i]) :
                     index_list.append(i)
-            st.write(f'The number of companies is {len(index_list)}.')
+            st.write(f'The number of companies matching your search criteria is {len(index_list)}.')
             st.write(final_df_3.iloc[index_list])
 
         if n ==4 and option == "OR":
@@ -1188,7 +1188,7 @@ if option == 'Data Analysis using NLP':
             for i in range (final_df_3.shape[0]):
                 if (s1 in final_df_3['Cleaned_About'][i] or s2 in final_df_3['Cleaned_About'][i] or s3 in final_df_3['Cleaned_About'][i] or s4 in final_df_3['Cleaned_About'][i]) :
                     index_list.append(i)
-            st.write(f'The number of companies is {len(index_list)}.')
+            st.write(f'The number of companies matching your search criteria is {len(index_list)}.')
             st.write(final_df_3.iloc[index_list])
     
     html = '''
